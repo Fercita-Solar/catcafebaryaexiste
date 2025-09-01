@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Galería de Imágenes{% endblock %}
+
+{% block content %}
+<section class="gallery">
+    <h2>Nuestras Imágenes</h2>
+    <div class="image-grid">
+        {% for url in imagenes %}
+            <img src="{{ url }}" alt="Imagen Cat Cafe">
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
