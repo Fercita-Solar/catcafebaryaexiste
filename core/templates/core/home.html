@@ -1,11 +1,15 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
-{% block title %}Inicio | Cat Cafe Michimar{% endblock %}
+{% block title %}Inicio | Cat Café Michimar{% endblock %}
 
 {% block content %}
-<section class="text-center mt-5">
-    <h2>Bienvenidos a Cat Cafe Michimar</h2>
-    <p>Disfruta de un ambiente único con nuestros adorables gatos y el mejor café de Penco.</p>
-    <img src="https://www.blogdelfotografo.com/wp-content/uploads/2023/08/gatito-bonito-blanco.webp" alt="Gato Café" class="img-fluid rounded shadow mt-4" style="max-width:400px;">
+<section class="home mt-5 text-center">
+    <img src="https://drive.google.com/uc?export=view&id=1Y_TcZOffhCUwK-mpWex0JpCoU8jyWGYP" alt="Logo Cat Café Michimar" class="mb-4" style="max-width:160px;">
+    <h1 class="mb-3">Bienvenido a Cat Café Michimar</h1>
+    <p class="lead">
+        Un rincón cálido para amantes de los gatos y el café. Disfruta de momentos únicos rodeado de nuestros michis, deliciosos postres y la mejor compañía. ¡Haz de tu día algo especial con nosotros!
+    </p>
+    <a href="{% url 'galeria' %}" class="btn btn-primary mt-3">Ver Galería</a>
 </section>
 {% endblock %}

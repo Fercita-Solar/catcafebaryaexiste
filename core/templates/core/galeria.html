@@ -3,12 +3,28 @@
 {% block title %}Galería de Imágenes{% endblock %}
 
 {% block content %}
-<section class="gallery">
-    <h2>Nuestras Imágenes</h2>
-    <div class="image-grid">
-        {% for url in imagenes %}
-            <img src="{{ url }}" alt="Imagen Cat Cafe">
-        {% endfor %}
+<section class="gallery mt-5">
+    <div class="text-center mb-4">
+        <img src="https://drive.google.com/uc?export=view&id=1Y_TcZOffhCUwK-mpWex0JpCoU8jyWGYP" alt="Logo Cat Café Michimar" style="max-width:160px;">
+    </div>
+    <h2 class="mb-4 text-center">Nuestras Imágenes</h2>
+    <div id="carouselMichis" class="carousel slide mx-auto" data-bs-ride="carousel" style="max-width:400px;">
+        <div class="carousel-inner">
+            {% for imagen in imagenes %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                <img src="{{ imagen.url }}" class="d-block w-100 rounded shadow" alt="Imagen Cat Cafe" style="height:300px; object-fit:cover;">
+                <div class="carousel-caption d-none d-md-block">
+                    <p class="bg-dark bg-opacity-50 rounded px-2">{{ imagen.descripcion }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselMichis" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselMichis" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
     </div>
 </section>
 {% endblock %}
