@@ -1,12 +1,21 @@
 from django.shortcuts import render
+from .forms import ContactForm  # <-- ESTA LÍNEA ES FUNDAMENTAL
 
 
 def home(request):
     return render(request, 'core/home.html')
 
-
+# Se creo el correo de contacto
 def quienes_somos(request):
-    return render(request, 'core/quienes_somos.html')
+    enviado = False
+    if request.method == "POST":
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Aquí puedes enviar el correo, guardar en la base de datos, etc.
+            enviado = True
+    else:
+        form = ContactForm()
+    return render(request, 'core/quienes_somos.html', {'form': form, 'enviado': enviado})
 
 
 def news_sales(request):
@@ -17,7 +26,7 @@ def galeria(request):
     imagenes = [
         {
             "url": "https://cdn.shopify.com/s/files/1/0607/5167/5547/files/el-gato-sagrado-birmano_600x600.jpg?v=1683735400",
-            "descripcion": "Gato Birmano en el café"
+            "descripcion": "Recien llegado Gato Birmano en el café!"
         },
         {
             "url": "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg",
@@ -36,12 +45,12 @@ def galeria(request):
             "descripcion": "Disfruta la compañia de nuestros michis"
         },
         {
-            "url": "",
-            "descripcion": "Saboreando el café"
+            "url": "https://wakyma.com/blog/wp-content/uploads/2017/11/gatos.jpg",
+            "descripcion": "Momentos de juego"
         },
         {
-            "url": "",
-            "descripcion": "Saboreando el café"
+            "url": "https://offloadmedia.feverup.com/madridsecreto.co/wp-content/uploads/2017/11/08115725/21751962_347163215705008_9107887813586106886_n-1024x597.jpg",
+            "descripcion": "Hora del desayuno!"
         },
     ]
     return render(request, 'core/galeria.html', {'imagenes': imagenes})

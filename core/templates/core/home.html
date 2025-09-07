@@ -5,11 +5,13 @@
 
 {% block content %}
 <section class="home mt-5 text-center">
-    <img src="https://drive.google.com/uc?export=view&id=1Y_TcZOffhCUwK-mpWex0JpCoU8jyWGYP" alt="Logo Cat Café Michimar" class="mb-4" style="max-width:160px;">
+    <!-- Logo principal -->
+    <img src="{% static 'core/img/cafelogo.png' %}" alt="Logo Cat Café Michimar" class="mb-4" style="max-width:160px;">
     <h1 class="mb-3">Bienvenido a Cat Café Michimar</h1>
     <p class="lead">
-        Un rincón cálido para amantes de los gatos y el café. Disfruta de momentos únicos rodeado de nuestros michis, deliciosos postres y la mejor compañía. ¡Haz de tu día algo especial con nosotros!
+        Un rincón cálido y acogedor para amantes de los gatos y el café. Disfruta de momentos únicos rodeado de nuestros michis, deliciosos postres y el mejor café de especialidad. ¡Haz de tu día algo especial con nosotros!
     </p>
-    <a href="{% url 'galeria' %}" class="btn btn-primary mt-3">Ver Galería</a>
+    <!-- Botón para ver la galería -->
+    <a href="{% url 'galeria' %}" class="btn" style="background:#e9b8a3; color:#fff; border-radius:20px; font-weight:bold; border:none;">Ver Galería</a>
 </section>
 {% endblock %}

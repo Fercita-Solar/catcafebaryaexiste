@@ -1,13 +1,14 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 {% block title %}Galería de Imágenes{% endblock %}
 
 {% block content %}
 <section class="gallery mt-5">
     <div class="text-center mb-4">
-        <img src="https://drive.google.com/uc?export=view&id=1Y_TcZOffhCUwK-mpWex0JpCoU8jyWGYP" alt="Logo Cat Café Michimar" style="max-width:160px;">
+        <img src="{% static 'core/img/cafelogo.png' %}" alt="Logo Cat Café Michimar" style="max-width:160px;">
     </div>
-    <h2 class="mb-4 text-center">Nuestras Imágenes</h2>
+    <h2 class="mb-4 text-center">Cat pics</h2>
     <div id="carouselMichis" class="carousel slide mx-auto" data-bs-ride="carousel" style="max-width:400px;">
         <div class="carousel-inner">
             {% for imagen in imagenes %}

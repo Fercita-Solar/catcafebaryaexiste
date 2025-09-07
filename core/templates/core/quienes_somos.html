@@ -3,12 +3,28 @@
 {% block title %}Quiénes Somos{% endblock %}
 
 {% block content %}
-<section class="about mt-5">
-    <div class="container">
-        <h2 class="mb-3">Quiénes Somos</h2>
-        <p class="lead">
-            En Cat Café Michimar, creemos que cada momento puede ser especial cuando lo compartes con amigos peludos. Somos un espacio acogedor donde el amor por los gatos y el buen café se unen para crear experiencias únicas. Ven a relajarte, disfrutar de deliciosos postres y conocer a nuestros michis, ¡te esperamos con los brazos abiertos!
-        </p>
+<div class="row mt-5">
+    <div class="col-md-8">
+        <section class="about p-4 rounded shadow" style="background: #fff7f0; border-left: 6px solid #e9b8a3;">
+            <h2 class="mb-3" style="color:#a85c3a;">Quiénes Somos</h2>
+            <p class="lead" style="color:#6d3c1e;">
+                En <span style="font-weight:bold; color:#e9b8a3;">Cat Café Michimar</span>, cada momento es especial cuando lo compartes con amigos peludos. Somos un espacio acogedor y alegre donde el amor por los gatos y el buen café se unen para crear experiencias únicas. Relájate, disfruta de deliciosos postres y conoce a nuestros michis en un ambiente lleno de cariño y buena energía.<br>
+                <span style="font-size:1.1rem; color:#a85c3a;">¡Te esperamos con los brazos abiertos y muchas ronroneos!</span>
+            </p>
+        </section>
     </div>
-</section>
+    <div class="col-md-4">
+        <section class="contact-form p-3 rounded shadow-sm" style="background: #ffece2;">
+            <h5 class="mb-3" style="color:#a85c3a;">¡Comunícate con nosotros!</h5>
+            {% if enviado %}
+                <div class="alert alert-success">¡Gracias por tu mensaje!</div>
+            {% endif %}
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary btn-sm w-100" style="background:#a85c3a; border:none;">Enviar</button>
+            </form>
+        </section>
+    </div>
+</div>
 {% endblock %}
